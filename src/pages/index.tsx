@@ -38,7 +38,7 @@ export default function Home() {
           <div>
             <motion.div
               key={currentQuestion?.key}
-              initial={{ tx: 300, opacity: 0 }}
+              initial={{ x: 300, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -300, opacity: 0 }}
             >
