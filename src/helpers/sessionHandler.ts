@@ -26,6 +26,7 @@ const setLocalStoreUserId = (s: string) => {
 // how uuid is gen  https://stackoverflow.com/questions/105034/how-do-i-create-a-guid-uuid
 function uuidv4() {
   if (isBrowser) {
+    // @ts-ignore
     return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
       (
         c ^
