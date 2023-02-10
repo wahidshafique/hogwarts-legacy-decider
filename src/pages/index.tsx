@@ -6,11 +6,12 @@ import styles from "@/styles/Home.module.css";
 import SliderDecider from "@/components/SliderDecider";
 import questions from "@/helpers/questions";
 import { motion, AnimatePresence } from "framer-motion";
-
-const inter = Inter({ subsets: ["latin"] });
+import { QuestionTerminus, Question } from "@/types";
 
 export default function Home() {
-  const [currentQuestion, setCurrentQuestion] = useState(questions.entry);
+  const [currentQuestion, setCurrentQuestion] = useState<
+    Question | QuestionTerminus
+  >(questions.entry);
   return (
     <>
       <Head>
@@ -42,7 +43,7 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -300, opacity: 0 }}
             >
-              {currentQuestion?.terminalText ? (
+              {"terminalText" in currentQuestion ? (
                 <div className={styles.terminalText}>
                   {currentQuestion.terminalText}
                 </div>

@@ -10,14 +10,14 @@ export type QuestionNames =
 export interface Question {
   questionText: string | JSX.Element;
   questionReferences?: string | JSX.Element;
-  affirmative: QuestionNames | null;
-  negative: QuestionNames | null;
+  affirmative: QuestionNames;
+  negative: QuestionNames;
   key: string;
 }
 
 export interface QuestionTerminus {
   questionText: string | JSX.Element;
   questionReferences?: string | JSX.Element;
+  terminalText: string | JSX.Element;
   key: string;
-  terminalText?: string | JSX.Element;
 }

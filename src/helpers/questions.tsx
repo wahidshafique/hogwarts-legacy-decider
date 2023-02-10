@@ -25,7 +25,7 @@ const questions: {
         href="https://www.forbes.com/sites/conormurray/2023/02/07/hogwarts-legacy-video-game-controversy-boycotts-and-jk-rowlings-comments-on-transgender-community-explained/?sh=d64c6951c4bb"
         rel="noreferrer"
       >
-        [1] "Hogwarts Legacy" Video Game Controversy
+        [1] Hogwarts Legacy Video Game Controversy
       </a>
     ),
     affirmative: "willingToBuyUsed",
@@ -34,8 +34,6 @@ const questions: {
   dontBuyIt: {
     key: randKey(),
     questionText: "Then do not buy this game",
-    affirmative: null,
-    negative: null,
     terminalText: (
       <span role="img" aria-label="thumb down emoji">
         👎
@@ -45,8 +43,6 @@ const questions: {
   liveYourLife: {
     key: randKey(),
     questionText: "Live your life, buy the game!",
-    affirmative: null,
-    negative: null,
     terminalText: (
       <span role="img" aria-label="thumb up emoji">
         👍
