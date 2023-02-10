@@ -31,31 +31,40 @@ export default function Home() {
           height={75}
           priority
         />
-        {/* <p className={styles.subtitle}>Decider</p> */}
       </div>
       <main className={styles.main}>
-        <h1>{currentQuestion.questionText}</h1>
+        <h1>{currentQuestion?.questionText}</h1>
         <AnimatePresence>
           <div>
             <motion.div
-              key={currentQuestion.key}
-              initial={{ x: 300, opacity: 0 }}
+              key={currentQuestion?.key}
+              initial={{ tx: 300, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -300, opacity: 0 }}
             >
-              <SliderDecider
-                onFullSlide={(hasAnsweredAffirmative) => {
-                  console.log(hasAnsweredAffirmative);
-                  if (hasAnsweredAffirmative) {
-                    setCurrentQuestion(questions[currentQuestion.affirmative]);
-                  } else {
-                    setCurrentQuestion(questions[currentQuestion.negative]);
-                  }
-                }}
-              />
-              <p className={styles.helperText}>
-                Drag right for Yes, left for No.
-              </p>
+              {currentQuestion?.terminalText ? (
+                <div className={styles.terminalText}>
+                  {currentQuestion.terminalText}
+                </div>
+              ) : (
+                <>
+                  <SliderDecider
+                    onFullSlide={(hasAnsweredAffirmative) => {
+                      console.log(hasAnsweredAffirmative);
+                      if (hasAnsweredAffirmative) {
+                        setCurrentQuestion(
+                          questions[currentQuestion.affirmative]
+                        );
+                      } else {
+                        setCurrentQuestion(questions[currentQuestion.negative]);
+                      }
+                    }}
+                  />
+                  <p className={styles.helperText}>
+                    Drag right for Yes, left for No.
+                  </p>
+                </>
+              )}
             </motion.div>
           </div>
         </AnimatePresence>

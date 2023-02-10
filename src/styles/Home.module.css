@@ -16,6 +16,7 @@
 }
 
 .main h1 {
+  font-size: 1.5rem;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -301,4 +302,9 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.terminalText {
+  text-align: center;
+  font-size: 128px;
 }
