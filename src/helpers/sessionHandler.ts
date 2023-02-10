@@ -2,7 +2,7 @@ import { isBrowser } from "framer-motion";
 
 const LOCAL_ID = "hp-decider";
 
-const isValidJson = (json) => {
+const isValidJson = (json: string) => {
   try {
     JSON.parse(json);
   } catch (e) {
@@ -12,7 +12,7 @@ const isValidJson = (json) => {
 };
 
 // store data but with an expiration date, it only expires when user visits site again after some time
-const setLocalStoreUserId = (s) => {
+const setLocalStoreUserId = (s: string) => {
   if (isBrowser) {
     localStorage?.setItem(
       LOCAL_ID,

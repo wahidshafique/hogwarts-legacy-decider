@@ -25,3 +25,10 @@ export interface QuestionTerminus {
   terminalText: string | JSX.Element;
   key: string;
 }
+
+declare global {
+  interface Window {
+    session_id: string;
+    user_id: string;
+  }
+}
