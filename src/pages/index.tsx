@@ -7,6 +7,11 @@ import SliderDecider from "@/components/SliderDecider";
 import questions from "@/helpers/questions";
 import { motion, AnimatePresence } from "framer-motion";
 import { QuestionTerminus, Question } from "@/types";
+import { sessionInit } from "@/helpers/sessionHandler";
+
+const env = process.env.NODE_ENV;
+
+sessionInit();
 
 export default function Home() {
   const [currentQuestion, setCurrentQuestion] = useState<
@@ -51,7 +56,7 @@ export default function Home() {
                 <>
                   <SliderDecider
                     onFullSlide={(hasAnsweredAffirmative) => {
-                      console.log(hasAnsweredAffirmative);
+                      let answerBody = null;
                       if (hasAnsweredAffirmative) {
                         setCurrentQuestion(
                           questions[currentQuestion.affirmative]
@@ -59,6 +64,22 @@ export default function Home() {
                       } else {
                         setCurrentQuestion(questions[currentQuestion.negative]);
                       }
+
+                      fetch("/api/answeredQuestion", {
+                        method: "POST",
+                        body: JSON.stringify({
+                          session_id: window.session_id,
+                          user_id: window.user_id,
+                          answer: hasAnsweredAffirmative,
+                          name: currentQuestion.name,
+                          hash:
+                            env === "development"
+                              ? "#dev"
+                              : window.location.hash,
+                        }),
+                      }).then((e) => {
+                        console.log(e);
+                      });
                     }}
                   />
                   <p className={styles.helperText}>

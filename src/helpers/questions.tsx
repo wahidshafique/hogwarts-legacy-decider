@@ -7,12 +7,14 @@ const questions: {
   [key in QuestionNames]: Question | QuestionTerminus;
 } = {
   entry: {
+    name: "wants-game",
     key: randKey(),
     questionText: "Do you want this game?",
     affirmative: "controversy",
     negative: "dontBuyIt",
   },
   controversy: {
+    name: "cares-about-controversy",
     key: randKey(),
     questionText: (
       <span>
@@ -32,6 +34,7 @@ const questions: {
     negative: "liveYourLife",
   },
   dontBuyIt: {
+    name: "do-not-buy",
     key: randKey(),
     questionText: "Then do not buy this game",
     terminalText: (
@@ -41,6 +44,7 @@ const questions: {
     ),
   },
   liveYourLife: {
+    name: "buy-normal",
     key: randKey(),
     questionText: "Live your life, buy the game!",
     terminalText: (
@@ -50,6 +54,7 @@ const questions: {
     ),
   },
   liveYourLifeUsed: {
+    name: "buy-used",
     key: randKey(),
     questionText: (
       <span>
@@ -70,12 +75,14 @@ const questions: {
     ),
   },
   willingToBuyUsed: {
+    name: "is_willing-to-buy-used",
     key: randKey(),
     questionText: "Are you willing to buy it used?",
     affirmative: "liveYourLifeUsed",
     negative: "donateOffset",
   },
   donateOffset: {
+    name: "donate-offset",
     key: randKey(),
     questionText: (
       <span>
